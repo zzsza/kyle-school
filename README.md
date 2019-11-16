@@ -1,5 +1,8 @@
 # kyle-school
-쏘카 데이터 그룹 사내 신입/인턴을 대상으로 한 카일 스쿨
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fzzsza%2Fkyle-school)](https://hits.seeyoufarm.com)
+
+- 쏘카 데이터 그룹 사내 신입/인턴을 대상으로 한 카일 스쿨
+
 
 ---
 
