@@ -22,7 +22,7 @@
 ---
 
 ### 폴더 구조
-- 요약하면 발표 자료가 보고싶다면 `https://zzsza.github.io/kyle-school/<주차>
+- 요약하면 발표 자료가 보고싶다면 `https://zzsza.github.io/kyle-school/<주차>`
 	- 주차는 week1, week2 등으로 표시될 예정
 - 발표 자료를 노트북으로 보고 싶다면 notebooks에 저장된 파일 참고
 
