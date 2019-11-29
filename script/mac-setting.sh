@@ -8,6 +8,10 @@ brew tap homebrew/cask-versions
 ## Update Homebrew
 brew update
 
+## Install Python3
+brew install python3
+
+
 ## Install Mac Command Line Tools
 xcode-select --install
 
