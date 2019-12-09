@@ -39,15 +39,18 @@
 ---
 
 ### 커리큘럼
-- (1) 1주차 - [[발표 자료]](https://zzsza.github.io/kyle-school/week1)
+- (1) 1주차 - [[발표 자료]](https://zzsza.github.io/kyle-school/week1/)
 	- 우리는 왜 일하는가?
 	- 어떻게 해야 일을 더 잘할 수 있을까?
 	- 번아웃
 	- 맥북 스마트하게 사용하기
-- (2) Pandas 퀵 리뷰 + Python 시각화
-	- 시각화는 다양한 방법이 존재. 스프레드시트, Tableau, 파이썬, R 등
-	- 다양한 방법을 알고 본인이 빠르게 할 수 있는 수단을 사용하면 좋음
-	- 스프레드시트 같은 경우 지도 표현이 어렵고, 다른 도구들은 지도 표현이 수월할 경우도 있음 => 이런 차이점 Check 
+- (2) 2주차 - [[발표 자료]](https://zzsza.github.io/kyle-school/week2/)
+	- 올바른 자세
+	- Pandas 퀵 리뷰
+	- 데이터 시각화
+		- Matplotlib, Seaborn, Cufflinks
+		- Ipywidget
+		- Pydeck
 - (3) Shell Script, Bash Script
 	- 서버에서 프로그래밍하면 쉘을 꽤 많이 쓰는데, 범위가 너무 넓어 처음에 어려워 함
 	- 자주 사용하는 명령어와 간단한 것 위주로 시작
@@ -80,5 +83,5 @@
 
 ### 제게 하는 이야기
 - 말을 천천히 하자 
-
+- 매주 [링크](https://forms.gle/V21W8MHPq7bAsoQU6)를 통해서 피드백 받기
 
