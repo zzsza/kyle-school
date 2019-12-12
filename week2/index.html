@@ -13260,6 +13260,41 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>저번 주 이야기<ul>
+<li>우리는 왜 일하는가?</li>
+<li>어떻게 해야 일을 더 잘할 수 있을까?</li>
+<li>번아웃</li>
+<li>맥북 스마트하게 사용하기</li>
+</ul>
+</li>
+<li>숙제 하신분..^_^?</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#51200;&#48264;-&#51452;-&#49689;&#51228;">&#51200;&#48264; &#51452; &#49689;&#51228;<a class="anchor-link" href="#&#51200;&#48264;-&#51452;-&#49689;&#51228;">&#182;</a></h3><ul>
+<li>자신이 "왜" 일하는지 생각해보기<ul>
+<li>DM으로 주셔도 좋고, 안주셔도 좋고</li>
+</ul>
+</li>
+<li>Mac을 더 스마트하게 사용하기 위한 도구 설치<ul>
+<li>제가 알려드린 것 말고도 많음</li>
+<li>맥 생산성 도구 이런 내용으로 검색해보고 설치</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#50732;&#48148;&#47480;-&#51088;&#49464;">&#50732;&#48148;&#47480; &#51088;&#49464;<a class="anchor-link" href="#&#50732;&#48148;&#47480;-&#51088;&#49464;">&#182;</a></h3><ul>
 <li>자세 정말 중요합니다!<ul>
 <li>사실 전 아파봤어요 ㅠ.. 그 후 물건에 투자를 잘 함(아파봐야... 알더라..)</li>
@@ -13675,10 +13710,12 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip3 install pandas-gbq
+
+<span class="n">project_id</span> <span class="o">=</span> <span class="s1">&#39;your_project_id&#39;</span>
 </pre></div>
 
     </div>
@@ -13703,7 +13740,7 @@ a.anchor-link {
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14737,7 +14774,7 @@ Name: pickup_hour, dtype: int64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>stack() : Row로 쭈욱 펼쳐진 상태<ul>
+<li>stack() : 쌓다. 위 아래로 변경함. Row로 쭈욱 펼쳐진 상태<ul>
 <li><img src="https://pandas.pydata.org/pandas-docs/stable/_images/reshaping_stack.png"></li>
 </ul>
 </li>
@@ -14763,7 +14800,7 @@ Name: pickup_hour, dtype: int64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>melt()<ul>
+<li>melt() : Unpivot, id_vars 인자로 지정해주는 것은 그대로 유지<ul>
 <li><img src="https://pandas.pydata.org/pandas-docs/stable/_images/reshaping_melt.png"></li>
 </ul>
 </li>
@@ -15229,6 +15266,34 @@ Name: pickup_hour, dtype: int64</pre>
 <li>%%timeit 등을 찍어보며 퍼포먼스를 비교해보자</li>
 </ul>
 </li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#51221;&#47532;">&#51221;&#47532;<a class="anchor-link" href="#&#51221;&#47532;">&#182;</a></h3><ul>
+<li>1) Pandas + BigQuery =&gt; pd.read_gbq()</li>
+<li>2) 컬럼 타입 변경 =&gt; Memory 사용량 감소</li>
+<li>3) 컬럼별 값이 얼마나 있는지 =&gt; value_counts()</li>
+<li>4) Datetime 추출하고 싶은 경우 =&gt; df['datetime_column'].dt.~~~</li>
+<li>5) Filtering<ul>
+<li>df[특정 조건][특정 조건]</li>
+<li>df[ (T or F가 나오는 연산) &amp; (T or F가 나오는 연산) ]</li>
+<li>loc 사용</li>
+<li>query 사용</li>
+</ul>
+</li>
+<li>6) Pivot Table</li>
+<li>7) 재구조화 : stack(), unstack(), melt(), .reset_index()</li>
+<li>8) 날짜 더미 데이터 생성 : pd.data_range()</li>
+<li>9) String value 확인 : df['col_name'].str.contains()</li>
+<li>10) 이동 평균 : Series.rolling, 이전 값(Lag) : Series.shift()</li>
+<li>11) 기타 : fillna, merge, concat</li>
+<li>12) notebook setting</li>
+<li>13) Pandas Anti Pattern을 피합시다! : pd.apply(), pd.iterrows() 사용은 고민해보고 결정하기</li>
 </ul>
 
 </div>
@@ -17124,10 +17189,10 @@ height=390
 
  
  
-<div id="667caeba-38f7-4243-b4a4-28798c7933ea"></div>
+<div id="6c717ca6-813f-422a-b284-73906d15c9c0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#667caeba-38f7-4243-b4a4-28798c7933ea');
+var element = $('#6c717ca6-813f-422a-b284-73906d15c9c0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "ef64f9dda611466d975905df749e5859", "version_major": 2, "version_minor": 0}
@@ -17174,10 +17239,10 @@ var element = $('#667caeba-38f7-4243-b4a4-28798c7933ea');
 
  
  
-<div id="c9844abb-f8c6-4327-8c91-86afcf12c2b2"></div>
+<div id="5b79b1e1-e71d-41c0-9d01-35bc0dcf40f6"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#c9844abb-f8c6-4327-8c91-86afcf12c2b2');
+var element = $('#5b79b1e1-e71d-41c0-9d01-35bc0dcf40f6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "f9fb22f1e4a74d8c905d4d57eaaa3927", "version_major": 2, "version_minor": 0}
@@ -17224,10 +17289,10 @@ var element = $('#c9844abb-f8c6-4327-8c91-86afcf12c2b2');
 
  
  
-<div id="dc09ba69-d71f-4b26-82d4-27b079950c69"></div>
+<div id="d5ed5bd1-4301-409d-af44-f6c0e73f07fd"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#dc09ba69-d71f-4b26-82d4-27b079950c69');
+var element = $('#d5ed5bd1-4301-409d-af44-f6c0e73f07fd');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "03ad5dac6276445ab2539f14f532023e", "version_major": 2, "version_minor": 0}
@@ -17244,6 +17309,58 @@ var element = $('#dc09ba69-d71f-4b26-82d4-27b079950c69');
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="https://www.dropbox.com/s/2dkf8vn6kjmu4gw/Screenshot%202019-12-10%2001.28.02.png?raw=1" width="300" height="200"></p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@interact</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="4c857608-f257-4560-bca1-cb046a52df41"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#4c857608-f257-4560-bca1-cb046a52df41');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a45d5b4751b84a218e4e159025a8e335", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://www.dropbox.com/s/dbvolczssm8brcz/Screenshot%202019-12-13%2002.02.41.png?raw=1" width="300" height="200"></p>
 
 </div>
 </div>
@@ -17407,10 +17524,10 @@ var element = $('#dc09ba69-d71f-4b26-82d4-27b079950c69');
 
  
  
-<div id="aeb3a1a6-6c4a-44f7-9e7c-e1f211f5d47d"></div>
+<div id="8b9411d2-ae51-45ef-aaaa-16afe656d505"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#aeb3a1a6-6c4a-44f7-9e7c-e1f211f5d47d');
+var element = $('#8b9411d2-ae51-45ef-aaaa-16afe656d505');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "aae9d88b5d5b4b38b374ded9b8a5b029", "version_major": 2, "version_minor": 0}
@@ -17833,10 +17950,10 @@ Wall time: 12.5 s
 
  
  
-<div id="5ceaeea6-c4a2-47fb-ae72-1cc4f29695c0"></div>
+<div id="1c22fa86-2a3a-4324-830c-16596a7d1f04"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#5ceaeea6-c4a2-47fb-ae72-1cc4f29695c0');
+var element = $('#1c22fa86-2a3a-4324-830c-16596a7d1f04');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "4ae28c20ffe44c4794f09b25c761a3ec", "version_major": 2, "version_minor": 0}
@@ -17904,10 +18021,10 @@ var element = $('#5ceaeea6-c4a2-47fb-ae72-1cc4f29695c0');
 
  
  
-<div id="e1ac7051-395d-4f9b-b6cd-15d3c69bf71c"></div>
+<div id="8ae46b5b-5619-4217-b8bd-f0e995de2c3d"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e1ac7051-395d-4f9b-b6cd-15d3c69bf71c');
+var element = $('#8ae46b5b-5619-4217-b8bd-f0e995de2c3d');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "4ae28c20ffe44c4794f09b25c761a3ec", "version_major": 2, "version_minor": 0}
@@ -17926,10 +18043,10 @@ var element = $('#e1ac7051-395d-4f9b-b6cd-15d3c69bf71c');
 
  
  
-<div id="2c1e4941-24b1-4ac0-8701-7c7bb3cfe68b"></div>
+<div id="68e59be3-a224-4257-ae00-54994743e8b5"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#2c1e4941-24b1-4ac0-8701-7c7bb3cfe68b');
+var element = $('#68e59be3-a224-4257-ae00-54994743e8b5');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "ed6ba4591bb7440c957dff72f2e16797", "version_major": 2, "version_minor": 0}
@@ -17966,6 +18083,21 @@ var element = $('#2c1e4941-24b1-4ac0-8701-7c7bb3cfe68b');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#49892;&#49845;">&#49892;&#49845;<a class="anchor-link" href="#&#49892;&#49845;">&#182;</a></h3><ul>
+<li>데이터 시각화쪽 코드 따라치기<ul>
+<li>치면서 인자도 바꿔보고, 어떻게 되는지 확인</li>
+<li>plot의 인자가 궁금하면 노트북에서 pd.DataFrame.plot? 을 입력하면 관련 method가 나옴</li>
+</ul>
+</li>
+<li>강의만 듣는게 아니라 따라쳐야 합니다!!!!</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#51221;&#47532;">&#51221;&#47532;<a class="anchor-link" href="#&#51221;&#47532;">&#182;</a></h3><ul>
 <li>df.plot(), seaborn, cufflinks, matplotlib</li>
 <li>결국 모든 것은 선택! <ul>
@@ -17974,6 +18106,46 @@ var element = $('#2c1e4941-24b1-4ac0-8701-7c7bb3cfe68b');
 </li>
 <li>ipywidget을 활용해 Interactive 시각화 가능</li>
 <li>pydeck, kepler.gl 등을 활용하면 지리 데이터 시각화를 나름 편하게 할 수 있음</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#51060;&#48264;-&#51452;-&#49689;&#51228;">&#51060;&#48264; &#51452; &#49689;&#51228;<a class="anchor-link" href="#&#51060;&#48264;-&#51452;-&#49689;&#51228;">&#182;</a></h3><ul>
+<li>Pandas 활용 사례 따라치기 2회</li>
+<li>Visualization 따라치기 2회<ul>
+<li>New York Taxi Data 추가적인 시각화</li>
+</ul>
+</li>
+<li>ipywidget 사용해서 동적인 그래프 만들기</li>
+<li>pydeck으로 시각화 해보기</li>
+<li><code>Colab 코드 제출해주세요(진지함)</code><ul>
+<li>여러분 숙제를 해야 결국 실력 향상이 됩니다!</li>
+<li>이거만 듣고 가는건 의미가..</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#45796;&#51020;-&#52852;&#51068;-&#49828;&#53224;">&#45796;&#51020; &#52852;&#51068; &#49828;&#53224;<a class="anchor-link" href="#&#45796;&#51020;-&#52852;&#51068;-&#49828;&#53224;">&#182;</a></h3><ul>
+<li>12월 27일은 제가 휴가라 Skip..</li>
+<li>쉘 스크립트에 대해 알려드릴 예정<ul>
+<li>개인적으로 파이썬보다 더 좋다고 생각함</li>
+<li>데이터 분석 직군은 딱히 익힐 일이 별로 없을 수 있는데, 꼭 참석하시길..</li>
+</ul>
+</li>
+<li>쉘 스크립트는 중요한 것 위주로 조금씩 진행해서 실습을 넣을 예정이에요<ul>
+<li>실습 : 카카오톡 대화 추출한 후, 그 방에서 제일 말 많이 하는 사람 Count하는 코드 짜기(터미널에서 1줄로 진행하기)</li>
+</ul>
+</li>
 </ul>
 
 </div>
