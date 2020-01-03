@@ -13325,7 +13325,7 @@ a.anchor-link {
 <li><img src="https://www.dropbox.com/s/vza98wmgt5pmwfs/Screenshot%202020-01-01%2021.45.42.png?raw=1"></li>
 <li>byeon : user_name</li>
 <li>byeon_Macbook : hostname<ul>
-<li>hostname : 퓨터 네트워크에 접속된 장치들에 할당된 이름, IP 대신 기억하기 쉽게 작성한 것</li>
+<li>hostname : 컴퓨터 네트워크에 접속된 장치들에 할당된 이름, IP 대신 기억하기 쉽게 작성한 것</li>
 </ul>
 </li>
 </ul>
@@ -13544,7 +13544,7 @@ ls -lh</code></pre>
 </li>
 <li><p>mv</p>
 <ul>
-<li><p>폴더 이동하기(또는 이름 바꾸기)</p>
+<li><p>파일 또는 폴더 이동하기(또는 이름 바꾸기)</p>
 
 <pre><code>mv hi.sh hi2.sh</code></pre>
 </li>
@@ -13566,9 +13566,10 @@ ls -lh</code></pre>
 <ul>
 <li><p>cp</p>
 <ul>
-<li><p>폴더 복사하기</p>
+<li><p>파일 또는 폴더 복사하기</p>
 
-<pre><code>cp hi2.sh hi3.sh</code></pre>
+<pre><code>cp hi2.sh hi3.sh
+cp hi2.sh hi.sh</code></pre>
 </li>
 <li><p>옵션</p>
 <ul>
@@ -13763,6 +13764,18 @@ cat kyle.sh</code></pre>
 <li>test.txt 파일 맨 아래에 "kkkkk"를 입력해주세요(vi 사용 금지)</li>
 <li>test.txt의 라인 수를 구해주세요(힌트 : wc -l를 쓰면 라인 수를 구할 수 있음)</li>
 </ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>echo "Hi!!!!" &gt; test.txt
+echo "kkkk" &gt;&gt; test.txt
+
+cat test.txt | wc -l</code></pre>
 
 </div>
 </div>
@@ -14083,6 +14096,18 @@ grep -i "is" demo_file</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>grep "empty" demo_file
+grep -E "First|Upper" demo_file
+grep -iw "above" | wc -m
+grep -E "</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li><p>cut</p>
 <ul>
@@ -14101,7 +14126,8 @@ daemon:x:2:2:daemon:/sbin:/sbin/nologin
 
 ESC :wq</code></pre>
 
-<pre><code>cat cut_file | cut -d : -f 1,7</code></pre>
+<pre><code>cat cut_file | cut -d : -f 1,7
+# 1번째, 7번째 값을 가져옴</code></pre>
 </li>
 </ul>
 </li>
@@ -14117,6 +14143,16 @@ ESC :wq</code></pre>
 <li>cut_file을 / 기준으로 split한 후 처음 부분만 출력</li>
 <li>cut_file을 / 기준으로 split한 후 : 기준으로 또 split하고 처음 부분만 출력</li>
 </ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>cat cut_file | cut -d / -f 1 
+cat cut_file | cut -d / -f 1 | cut -d : -f 1</code></pre>
 
 </div>
 </div>
@@ -14144,6 +14180,94 @@ ESC :wq</code></pre>
 <li>우선 카카오톡에서 대화 내보내기로 csv 저장해주세요</li>
 <li>hint : 오늘 배운 다양한 것들을 다 사용합니다</li>
 </ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>일단 대화에 뭐가 들었는지 봅시다</li>
+</ul>
+
+<pre><code>head kakao-chat.csv
+
+# 또는
+cat kakao-chat.csv</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>2019가 앞에 있는 것들을 출력합시다</li>
+</ul>
+
+<pre><code>cat kakao-chat.csv | grep -E '^2019'</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>쉼표로 split해봅시다</li>
+</ul>
+
+<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ','</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>두번째가 뭔가 이름 같습니다</li>
+</ul>
+
+<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>자 이제 2019년의 대화를 봤습니다! 개수를 세기 위해 wc -l을 사용할 수 있지만, 저는 sort 후 uniq -c를 사용</li>
+</ul>
+
+<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort 
+cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort | uniq -c</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>큰 숫자부터 내림차순하고 싶기 때문에 sort -rn 사용</li>
+</ul>
+
+<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort | uniq -c | sort -rn</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>TOP 10만 추출</li>
+</ul>
+
+<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort | uniq -c | sort -rn | head -n 10</code></pre>
 
 </div>
 </div>
@@ -14184,18 +14308,16 @@ ESC :wq</code></pre>
 </ul>
 <ul>
 <li><p>httpie : python으로 개발된 http client 유틸리티</p>
+<ul>
+<li>curl에 비해 사용이 쉽고</li>
+<li>json 지원 기능 내장</li>
+<li><p>출력을 포매팅해줘서 가독성이 뛰어남</p>
 
-<pre><code>  - curl에 비해 사용이 쉽고
-  - json 지원 기능 내장
-  - 출력을 포매팅해줘서 가독성이 뛰어남
+<pre><code>  pip3 install httpie</code></pre>
 
-  ```
-  pip3 install httpie
-  ```
-
-  ```
-  http -v localhost:5000/ {data}
-  ```</code></pre>
+<pre><code>  http -v localhost:5000/ {data}</code></pre>
+</li>
+</ul>
 </li>
 </ul>
 
