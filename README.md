@@ -51,10 +51,14 @@
 		- Matplotlib, Seaborn, Cufflinks
 		- Ipywidget
 		- Pydeck
-- (3) Shell Script, Bash Script
-	- 서버에서 프로그래밍하면 쉘을 꽤 많이 쓰는데, 범위가 너무 넓어 처음에 어려워 함
-	- 자주 사용하는 명령어와 간단한 것 위주로 시작
-	- 쉘을 공부하다보면 맥북에서도 결국 비슷하게 메커니즘 이해할 수 있음
+- (3) Shell Command - [[발표 자료]](https://zzsza.github.io/kyle-school/week3/)	
+	- 쉘 관련 용어 정의 및 데이터 직군에서 쉘 사용하는 경우
+	- 기본 쉘 커맨드
+	- 데이터 전처리시 사용할 쉘 커맨드
+	- 종합 실습 : 카카오톡에서 대화 많이 한 사람을 1줄로 추출해보기!
+	- 서버에서 주로 사용하는 쉘 커맨드
+- (4) Shell Script
+	- TBU
 - (4) 클라우드
 	- 클라우드란 무엇인지, 회사에서 왜 사용하는지?
 	- AWS, GCP, Azure, IBM 클라우드 등 다양한 제품들이 있는데 어떻게 봐야할까?
