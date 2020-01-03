@@ -13243,6 +13243,7 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#52852;&#51068;-&#49828;&#53224;-3&#51452;&#52264;">&#52852;&#51068; &#49828;&#53224; 3&#51452;&#52264;<a class="anchor-link" href="#&#52852;&#51068;-&#49828;&#53224;-3&#51452;&#52264;">&#182;</a></h2><ul>
+<li><a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzzsza.github.io%2Fkyle-school%2Fweek3%2F" alt="Hits"></a></li>
 <li>#1. 쉘 관련 용어 정의 및 데이터 직군에서 쉘 사용하는 경우</li>
 <li>#2. 기본 쉘 커맨드 </li>
 <li>#3. 데이터 전처리시 사용할 쉘 커맨드</li>
@@ -14143,52 +14144,6 @@ ESC :wq</code></pre>
 <li>우선 카카오톡에서 대화 내보내기로 csv 저장해주세요</li>
 <li>hint : 오늘 배운 다양한 것들을 다 사용합니다</li>
 </ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>일단 대화에 뭐가 들었는지 봅시다</li>
-</ul>
-
-<pre><code>head kakao-chat.csv
-
-# 또는
-cat kakao-chat.csv</code></pre>
-<ul>
-<li>2019가 앞에 있는 것들을 출력합시다</li>
-</ul>
-
-<pre><code>cat kakao-chat.csv | grep -E '^2019'</code></pre>
-<ul>
-<li>쉼표로 split해봅시다</li>
-</ul>
-
-<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ','</code></pre>
-<ul>
-<li>두번째가 뭔가 이름 같습니다</li>
-</ul>
-
-<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2</code></pre>
-<ul>
-<li>자 이제 2019년의 대화를 봤습니다! 개수를 세기 위해 wc -l을 사용할 수 있지만, 저는 sort 후 uniq -c를 사용</li>
-</ul>
-
-<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort 
-cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort | uniq -c</code></pre>
-<ul>
-<li>큰 숫자부터 내림차순하고 싶기 때문에 sort -rn 사용</li>
-</ul>
-
-<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort | uniq -c | sort -rn</code></pre>
-<ul>
-<li>큰 숫자부터 내림차순하고 싶기 때문에 sort -rn 사용</li>
-</ul>
-
-<pre><code>cat kakao-chat.csv | grep -E '^2019' | cut -d ',' -f 2 | sort | uniq -c | sort -rn</code></pre>
 
 </div>
 </div>
