@@ -57,7 +57,7 @@
 	- 데이터 전처리시 사용할 쉘 커맨드
 	- 종합 실습 : 카카오톡에서 대화 많이 한 사람을 1줄로 추출해보기!
 	- 서버에서 주로 사용하는 쉘 커맨드
-- (4) Shell Command & Shell Script
+- (4) Shell Command & Shell Script - [[발표 자료]](https://zzsza.github.io/kyle-school/week4/)
 	- 질문 잘 하는 방법
 	- 쉘 커맨드
 		- awk

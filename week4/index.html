@@ -13411,26 +13411,27 @@ awk 'pattern {action}' filename</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>예시</li>
-</ul>
+<li><p>awkfile</p>
 
-<pre><code>vi awkfile
+<pre><code>  vi awkfile
 
-홍 길동 3324    5/11/96 50354  
-임 꺽정 5246    15/9/66 287650  
-이 성계 87654    6/20/58 60000  
-정 약용 908683    9/40/48 365000</code></pre>
-<ul>
-<li>awk '{print $0}' awkfile<ul>
-<li>전체 print</li>
-</ul>
+  홍 길동 3324    5/11/96 50354  
+  임 꺽정 5246    15/9/66 287650  
+  이 성계 87654    6/20/58 60000  
+  정 약용 908683    9/40/48 365000</code></pre>
 </li>
-</ul>
+<li><p>awk '{print $0}' awkfile</p>
+<ul>
+<li><p>전체 print</p>
 
 <pre><code>홍 길동 3324    5/11/96 50354
 임 꺽정 5246    15/9/66 287650
 이 성계 87654    6/20/58 60000
 정 약용 908683    9/40/48 365000</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13439,16 +13440,18 @@ awk 'pattern {action}' filename</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>awk '{print $1}' awkfile<ul>
-<li>구분자를 사용해(default ' ') 첫번째 print</li>
-</ul>
-</li>
-</ul>
+<li><p>awk '{print $1}' awkfile</p>
+<ul>
+<li><p>구분자를 사용해(default ' ') 첫번째 print</p>
 
 <pre><code>홍
 임
 이
 정</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13457,16 +13460,18 @@ awk 'pattern {action}' filename</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>awk '{print NR}' awkfile<ul>
-<li>파일의 레코드 번호 출력</li>
-</ul>
-</li>
-</ul>
+<li><p>awk '{print NR}' awkfile</p>
+<ul>
+<li><p>파일의 레코드 번호 출력</p>
 
 <pre><code>1
 2
 3
 4</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13475,13 +13480,15 @@ awk 'pattern {action}' filename</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>awk '/길동/' awkfile<ul>
-<li>찾는다</li>
+<li><p>awk '/길동/' awkfile</p>
+<ul>
+<li><p>길동을 찾아서 출력</p>
+
+<pre><code>홍 길동 3324    5/11/96 50354</code></pre>
+</li>
 </ul>
 </li>
 </ul>
-
-<pre><code>홍 길동 3324    5/11/96 50354</code></pre>
 
 </div>
 </div>
@@ -13506,46 +13513,50 @@ awk 'pattern {action}' filename</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>awk '/^정/{print $1, $2, $3}' awkfile<ul>
-<li>맨 앞에 정이 들어가는 데이터를 찾고, 출력</li>
-</ul>
-</li>
-</ul>
+<li><p>awk '/^정/{print $1, $2, $3}' awkfile</p>
+<ul>
+<li><p>맨 앞에 정이 들어가는 데이터를 찾고, 출력</p>
 
 <pre><code>정 약용 908683</code></pre>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>df | awk '$4 &lt; 100000' : |을 이용해 파이프라인 생성</li>
-</ul>
-
-<pre><code>devfs                388       388         0   100%     672                   0  100%   /dev
-map -hosts             0         0         0   100%       0                   0  100%   /net
-map auto_home          0         0         0   100%       0                   0  100%   /home</code></pre>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>awk '{max=($3 &gt; $5) ? $1 : $2; print max}' awkfile<ul>
-<li>표현식을 검사하기 위해 ?와 :를 사용. if/else가 하는 역할과 같은 결과를 의미</li>
-<li>$3과 $5를 비교해서 $3이 크면 $1을 출력하고, 아니면 $2를 출력해라</li>
+</li>
 </ul>
 </li>
 </ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>df | awk '$4 &lt; 100000' : |을 이용해 파이프라인 생성</p>
+
+<pre><code>  devfs                388       388         0   100%     672                   0  100%   /dev
+  map -hosts             0         0         0   100%       0                   0  100%   /net</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>awk '{max=($3 &gt; $5) ? $1 : $2; print max}' awkfile</p>
+<ul>
+<li>표현식을 검사하기 위해 ?와 :를 사용. if/else가 하는 역할과 같은 결과를 의미</li>
+<li><p>$3과 $5를 비교해서 $3이 크면 $1을 출력하고, 아니면 $2를 출력해라</p>
 
 <pre><code>길동
 꺽정
 이
 정</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13570,18 +13581,19 @@ map auto_home          0         0         0   100%       0                   0 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>awk -F ' ' '{print $4}' awkfile<ul>
-<li>' '로 split하고 4번째 값 출력</li>
-</ul>
-</li>
-</ul>
+<li><p>awk -F ' ' '{print $4}' awkfile</p>
+<ul>
+<li><p>' '로 split하고 4번째 값 출력</p>
 
 <pre><code>5/11/96
 15/9/66
 6/20/58
 9/40/48</code></pre>
-<ul>
-<li>더 자세한건 <a href="https://zzsza.github.io/development/2017/12/20/linux-6/">제 블로그</a> 참고</li>
+</li>
+</ul>
+</li>
+<li><p>더 자세한건 <a href="https://zzsza.github.io/development/2017/12/20/linux-6/">제 블로그</a> 참고</p>
+</li>
 </ul>
 
 </div>
@@ -13642,13 +13654,16 @@ map auto_home          0         0         0   100%       0                   0 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>xargs<ul>
-<li>*.mp3 지우기, 그러나 찾아 삭제는 find -delete가 좋음. 아래 예제처럼 하면 파일 하나당 서브 프로세스가 생성됨</li>
+<li><p>xargs</p>
+<ul>
+<li>*.mp3 지우기</li>
+<li><p>(Tip) 그러나 찾고 삭제는 find -delete가 좋음. 아래 예제처럼 하면 파일 하나당 서브 프로세스가 생성됨</p>
+
+<pre><code>find . -name '*.mp3' | xargs rm</code></pre>
+</li>
 </ul>
 </li>
 </ul>
-
-<pre><code>find . -name '*.mp3' | xargs rm</code></pre>
 
 </div>
 </div>
@@ -13657,13 +13672,15 @@ map auto_home          0         0         0   100%       0                   0 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>xargs<ul>
-<li>ls를 이용해 text 파일 목록을 가져오고 각 파일 내용을 cat으로 읽고 병합 파일 만듬</li>
+<li><p>xargs</p>
+<ul>
+<li><p>ls를 이용해 text 파일 목록을 가져오고 각 파일 내용을 cat으로 읽고 병합 파일 만듬</p>
+
+<pre><code>ls *.txt | xargs cat &gt;&gt; abc.merge</code></pre>
+</li>
 </ul>
 </li>
 </ul>
-
-<pre><code>ls *.txt | xargs cat &gt;&gt; abc.merge</code></pre>
 
 </div>
 </div>
@@ -13708,10 +13725,10 @@ map auto_home          0         0         0   100%       0                   0 
 </ul>
 </li>
 <li><p>사용 방법</p>
+
+<pre><code>  nohup shell.sh &amp;</code></pre>
 </li>
 </ul>
-
-<pre><code>nohup shell.sh &amp;</code></pre>
 
 </div>
 </div>
@@ -13803,10 +13820,11 @@ kill -9 pid번호</code></pre>
 </li>
 </ul>
 <ul>
-<li>local -&gt; remote</li>
-</ul>
+<li><p>local -&gt; remote</p>
 
-<pre><code>scp local_path user@ip:remote_directory</code></pre>
+<pre><code>  scp local_path user@ip:remote_directory</code></pre>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13836,18 +13854,20 @@ kill -9 pid번호</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>/dev/null<ul>
+<li><p>/dev/null</p>
+<ul>
 <li>리눅스 null</li>
 <li>null, 블랙홀 같은 공간이라 생각</li>
-<li>출력 스트림을 버릴 경우 사용됨</li>
-</ul>
-</li>
-</ul>
+<li><p>출력 스트림을 버릴 경우 사용됨</p>
 
 <pre><code>echo "hello"
 # hello
 echo hello &gt; /dev/null
 # 아무것도 출력되지 않음</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13856,15 +13876,17 @@ echo hello &gt; /dev/null
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>/dev/null<ul>
+<li><p>/dev/null</p>
+<ul>
 <li>주로 2&gt;&amp;1 이런 것들과 같이 쓰임</li>
 <li>2(표준 에러)를 1(표준 출력)으로 바꿔서 redirect!</li>
-<li>&amp; : 백그라운드에서 실행하라</li>
+<li><p>&amp; : 백그라운드에서 실행하라</p>
+
+<pre><code>rm test &gt; /dev/null 2&gt;&amp;1</code></pre>
+</li>
 </ul>
 </li>
 </ul>
-
-<pre><code>rm test &gt; /dev/null 2&gt;&amp;1</code></pre>
 
 </div>
 </div>
@@ -14025,11 +14047,9 @@ hell_function2 "hi" "hello"</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>위치 매개 변수<ul>
-<li>test.sh</li>
-</ul>
-</li>
-</ul>
+<li><p>위치 매개 변수</p>
+<ul>
+<li><p>test.sh</p>
 
 <pre><code>#!/bin/bash
 
@@ -14038,8 +14058,14 @@ echo "first arg is" $1
 echo "second arg is" $2  
 echo "all arg: " $@
 echo "len of arg : " $#</code></pre>
+</li>
+</ul>
+</li>
+<li><p>실행하기</p>
 
-<pre><code>bash test.sh 1 2 3</code></pre>
+<pre><code>  bash test.sh 1 2 3</code></pre>
+</li>
+</ul>
 
 </div>
 </div>
@@ -14071,39 +14097,43 @@ done</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>for loop<ul>
+<li><p>for loop</p>
+<ul>
 <li>seq를 안쓰고 수동으로 입력하기</li>
-<li>for_loop2.sh</li>
-</ul>
-</li>
-</ul>
+<li><p>for_loop2.sh</p>
 
 <pre><code>#!/bin/bash
 ORDER="5 6 7 8 9 4 3 2 1 0"
 for i in $ORDER
 do
-    echo "Running loop ${i}" 
+  echo "Running loop ${i}" 
 done</code></pre>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>for loop<ul>
-<li>0부터 1씩 증가하는 for loop(C/C++ 스타일)</li>
-<li>for_loop3.sh</li>
+</li>
 </ul>
 </li>
 </ul>
 
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>for loop</p>
+<ul>
+<li>0부터 1씩 증가하는 for loop(C/C++ 스타일)</li>
+<li><p>for_loop3.sh</p>
+
 <pre><code>#!/bin/bash
 for ((i=0;i&lt;=9;i++))
 do
-    echo "Running loop "$i
+  echo "Running loop "$i
 done</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -14112,7 +14142,8 @@ done</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>while<ul>
+<li><p>while</p>
+<ul>
 <li>while [condition]; do</li>
 <li>조건이 true일 때 실행</li>
 <li>실행 횟수 지정이 필요하지 않는 반복문이 필요할 때 좋음</li>
@@ -14125,18 +14156,19 @@ done</code></pre>
 <li>ge - greater or eqaul(&gt;=)</li>
 </ul>
 </li>
-<li>while_loop.sh</li>
-</ul>
-</li>
-</ul>
+<li><p>while_loop.sh</p>
 
 <pre><code>#!/bin/bash
 
 count=0
 while [ ${count} -le 5 ]; do
-    echo ${count}
-    count=$(( ${count}+1 ))
+  echo ${count}
+  count=$(( ${count}+1 ))
 done</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -14155,7 +14187,8 @@ done</code></pre>
 <li>if_test.sh</li>
 </ul>
 
-<pre><code>#!/bin/bash
+<pre><code>```
+#!/bin/bash
 string1=$1
 string2=$2
 string3="awesome"
@@ -14166,7 +14199,8 @@ elif [ ${string1} == ${string3} ]; then
     echo "string 1 is awesome"
 else
     echo "else condition"
-fi</code></pre>
+fi
+```</code></pre>
 
 </div>
 </div>
@@ -14181,27 +14215,28 @@ fi</code></pre>
 <li>case ~ esac(easc는 case 거꾸로) </li>
 </ul>
 </li>
-<li>case_test.sh</li>
+<li><p>case_test.sh</p>
+
+<pre><code>  #!/bin/bash
+
+  for string in "hi" "HELLO" "WORLD" "hello" "world" "wow" "awesome" "start" "end" "etc"; do
+      case ${string} in
+          hello|HELLO)
+              echo "hello or HELLO : ${string}"
+              ;;
+          wo*)
+              echo "wo로 시작하는 단어 : ${string}"
+              ;;
+          a*|end)
+              echo "a로 시작하는 단어 or end일 때 : ${string}"
+              ;;
+          *)
+              echo "기타 : ${string}"
+              ;;
+      esac
+  done</code></pre>
+</li>
 </ul>
-
-<pre><code>#!/bin/bash
-
-for string in "hi" "HELLO" "WORLD" "hello" "world" "wow" "awesome" "start" "end" "etc"; do
-    case ${string} in
-        hello|HELLO)
-            echo "hello or HELLO : ${string}"
-            ;;
-        wo*)
-            echo "wo로 시작하는 단어 : ${string}"
-            ;;
-        a*|end)
-            echo "a로 시작하는 단어 or end일 때 : ${string}"
-            ;;
-        *)
-            echo "기타 : ${string}"
-            ;;
-    esac
-done</code></pre>
 
 </div>
 </div>
@@ -14218,18 +14253,19 @@ done</code></pre>
 <li>set -o pipefail : 파이프라인의 명령이 실패하면 해당 리턴 코드가 파이프라인의 리턴 코드로 사용됨</li>
 </ul>
 </li>
-<li>set_test.sh</li>
+<li><p>set_test.sh</p>
+
+<pre><code>  #!/bin/bash
+
+  set -euo pipefail
+  echo "hi"
+
+  echi hihihi
+  # error 발생
+
+  echo "hello"</code></pre>
+</li>
 </ul>
-
-<pre><code>#!/bin/bash
-
-set -euo pipefail
-echo "hi"
-
-echi hihihi
-# error 발생
-
-echo "hello"</code></pre>
 
 </div>
 </div>
@@ -14238,12 +14274,10 @@ echo "hello"</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Bash에서 ''와 ""는 다릅니다!!!!!<ul>
+<li><p>Bash에서 ''와 ""는 다릅니다!!!!!</p>
+<ul>
 <li>파이썬에 익숙한 우리가 자주 일으키는 실수</li>
-<li>''(작은 따옴표)는 단순히 문자열을 의미하고, ""(쌍 따옴표)는 변수의 값이 참조됨</li>
-</ul>
-</li>
-</ul>
+<li><p>''(작은 따옴표)는 단순히 문자열을 의미하고, ""(쌍 따옴표)는 변수의 값이 참조됨</p>
 
 <pre><code>#!/bin/bash
 BASH_VAR="Bash Script is Amazing"
@@ -14256,6 +14290,10 @@ echo "${BASH_VAR}"</code></pre>
 
 <pre><code>${BASH_VAR}
 Bash Script is Amazing</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -14270,7 +14308,8 @@ Bash Script is Amazing</code></pre>
 </li>
 </ul>
 
-<pre><code>#!/bin/bash
+<pre><code>```
+#!/bin/bash
 
 set -euo pipefail
 # 종료가 되거나 끝나면 메세지 전송
@@ -14287,7 +14326,8 @@ function slack_test {
    echo "now sleep..."
    echo "command + c"
    sleep 5
-}</code></pre>
+}
+```</code></pre>
 
 </div>
 </div>
