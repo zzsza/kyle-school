@@ -57,30 +57,45 @@
 	- 데이터 전처리시 사용할 쉘 커맨드
 	- 종합 실습 : 카카오톡에서 대화 많이 한 사람을 1줄로 추출해보기!
 	- 서버에서 주로 사용하는 쉘 커맨드
-- (4) Shell Script
-	- TBU
-- (4) 클라우드
-	- 클라우드란 무엇인지, 회사에서 왜 사용하는지?
-	- AWS, GCP, Azure, IBM 클라우드 등 다양한 제품들이 있는데 어떻게 봐야할까?
-- (5) MLOps
-	- MLOps는 범위가 너무 다양해서 특정 부분만 하려고 생각 중 => 많아지면 차수를 늘려서 진행
-	- 실험 반복, 파라미터 저장
-		- 머신러닝/딥러닝을 돌리다 보면 정말 많은 실험을 해야함
-		- 이럴 경우 파라미터를 엑셀에 기록할 수 있지만, 그냥 DB에 넣어서 잘 보는게 중요
-	- 기타 MLOps에 어떤 것이 있는지 언급하며 사례 소개(Serving, AutoML, 
-- (6) 알아두면 쓸모있는 각종 Tip
-	- Jupyter Notebook Tip(확장 프로그램)
-	- Pycharm, VS Code
-- (7) 데이터 엔지니어링 맛보기
-	- 클라우드를 활용해 데이터 엔지니어링을 어떻게 쉽게할 수 있을까?
-	- Airflow 간단한 소개
-- (8) Python Test 소개 
-	- Test 코드를 거의 짤 일이 없을 수 있지만 이건 습관의 차이라 알아두면 좋음
-- (9) Git
-	- 음 이것 역시 알아두면 좋으니 일단 추가해두자
+- (4) Shell Command & Shell Script
+	- 질문 잘 하는 방법
+	- 쉘 커맨드
+		- awk
+		- sed
+		- alias
+		- xargs
+		- nohup
+		- screen
+		- scp
+		- pbcopy
+		- /dev/null이란
+	- 쉘 스크립트
+		- 함수
+		- 변수
+		- 위치 매개 변수
+		- for loop
+		- while loop
+		- 조건문(if elif, case)
+		- set
+		- ''와 ""는 다르다
+		- trap
+- (5) 클라우드 & 데이터 엔지니어링
+	- 클라우드란 무엇일까? 클라우드의 핵심과 큰 그림(AWS, GCP, Azure, IBM 등)
+	- 데이터 엔지니어링이란 무엇일까? 데이터 엔지니어링 퀵 요약
+- (6) Airflow
+	- Airflow를 사용한 간단한 ETL 파이프라인 만들기
+- (7) 각종 개발 도구들 & MLOps 개론
+	- IDE, Editor
+	- Jupyter Notebook Extension
+	- MLOps 개론
+- (8) MLOps 실험 플랫폼
+	- 실험 반복, 파라미터 저장하는 Sacred & Omniboard
+	- (상황 봐서) Microsoft nni
+- (9) Git, Github
 - (10) Docker
-- (11) Dashboard 만들기
-- 음 이정도면 충분한거 아닌가
+- (11) Python Test 소개 
+- (12) Dashboard 만들기
+	- Superset, Voila
 
 
 ---
