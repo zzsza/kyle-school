@@ -83,8 +83,10 @@
 	- 연말정산
 	- 클라우드란?
 	- 데이터 엔지니어링 퀵 요약
-- (6) Airflow
-	- Airflow를 사용한 간단한 ETL 파이프라인 만들기
+- (6) 영양제 & Airflow - [[발표 자료]](https://zzsza.github.io/kyle-school/week6/)
+	- 영양제
+	- Apache Airflow란?
+	- Apache Airflow를 사용한 간단한 ETL 파이프라인 만들기
 - (7) 각종 개발 도구들 & MLOps 개론
 	- IDE, Editor
 	- Jupyter Notebook Extension
