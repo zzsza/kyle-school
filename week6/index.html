@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13069,45 +13068,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13477,7 +13437,7 @@ a.anchor-link {
 <li>서버에서 시간 처리할 땐, 거의 UTC를 사용함</li>
 <li>한국 시간은 <strong>UTC+9hour</strong> </li>
 <li>Airflow에서 UTC를 사용하기 때문에, CRON 표시할 때 UTC 기준으로 작성<ul>
-<li>예 : UTC 30 1 <em> </em> <em> =&gt; 한국은 30 10 </em> <em> </em> =&gt; 한국 오전 10시 30분</li>
+<li>예 : UTC <code>30 1 * * *</code> =&gt; 한국은 <code>30 10 * * *</code> =&gt; 한국 오전 10시 30분</li>
 </ul>
 </li>
 </ul>
@@ -13739,7 +13699,7 @@ task1 &gt;&gt; task3</code></pre>
 <li>01-bash_operator.py 참고</li>
 <li>앞에서 예제로 보여준 BashOperator 내용을 타이핑해보기 (5분)<ul>
 <li>default_argument에서 start_date는 datetime(2019, 2, 13)</li>
-<li>DAG의 schedule_interval은 '0 10 <em> </em> *' 입력</li>
+<li>DAG의 schedule_interval은 <code>0 10 * * *</code> 입력</li>
 </ul>
 </li>
 <li>파일명은 airflow_test.py</li>
@@ -13882,7 +13842,7 @@ task1 &gt;&gt; task3</code></pre>
 </li>
 </ul>
 
-<pre><code>airflow webserver backfill -s 2020-01-05 -e 2020-01-10 python_dag_with_jinja</code></pre>
+<pre><code>airflow backfill -s 2020-01-05 -e 2020-01-10 python_dag_with_jinja</code></pre>
 
 </div>
 </div>
