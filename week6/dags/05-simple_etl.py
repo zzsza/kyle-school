@@ -55,6 +55,7 @@ query_task = BigQueryOperator(
         bigquery_conn_id='google_cloud_default',
         sql=agg_query,
         use_legacy_sql=False,
+        write_disposition='WRITE_TRUNCATE',
         destination_dataset_table=f"temp.bike_agg_{execution_date}"
 )
 
