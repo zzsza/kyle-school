@@ -8,11 +8,13 @@ function send_error {
   local lineno=$1
   local funname=$2
   local current_date=$(date '+%Y-%m-%d %H:%M:%S')
-  curl 'https://hooks.slack.com/services/T00000000/BXXXXX/asdasdasd' -d "payload={\"text\": \"[CRON][ERROR] LineNum=${lineno} FunName=${funname}\"}"
+  curl 'https://hooks.slack.com/services/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' -d "payload={\"text\": \"[CRON][ERROR] LineNum=${lineno} FunName=${funname}\"}"
 }
 
-function slack_test {
+function slack_test2 {
    echo "now sleep..."
    echo "command + c"
    sleep 5
 }
+
+slack_test2

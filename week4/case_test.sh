@@ -3,8 +3,8 @@
 for string in "hi" "HELLO" "WORLD" "hello" "world" "wow" "awesome" "start" "end" "etc"; do
     case ${string} in
         hello|HELLO)
-            echo "hello or HELLO : ${string}"
-            ;;
+            echo "hello or HELLO : ${string}" ;;
+            
         wo*)
             echo "wo로 시작하는 단어 : ${string}"
             ;;
