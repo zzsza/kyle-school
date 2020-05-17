@@ -87,6 +87,19 @@
 	- 영양제
 	- Apache Airflow란?
 	- Apache Airflow를 사용한 간단한 ETL 파이프라인 만들기
+- (7) Git, Github
+	- 회복 탄력성
+	- Git
+	- Github
+	- Branch 전략
+	- Sourcetree
+	- Github Action
+
+
+
+---
+
+### 소재
 - (7) 각종 개발 도구들 & MLOps 개론
 	- IDE, Editor
 	- Jupyter Notebook Extension
@@ -94,7 +107,6 @@
 - (8) MLOps 실험 플랫폼
 	- 실험 반복, 파라미터 저장하는 Sacred & Omniboard
 	- (상황 봐서) Microsoft nni
-- (9) Git, Github
 - (10) Docker
 - (11) Python Test 소개 
 - (12) Dashboard 만들기
