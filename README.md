@@ -87,18 +87,17 @@
 	- 영양제
 	- Apache Airfolw란?
 	- Apache Airflow를 사용한 간단한 ETL 파이프라인 만들기
-- (7) Git, Githu
+- (7) Git, Githu - [[발표 자료]](https://zzsza.github.io/kyle-school/week7/)
 	- 회복 탄력성
 	- Git
 	- Github
-	- Branch 전략
 	- Sourcetree
-	- Github Action
 
 
 ---
 
 ### 소재
+- Github Action
 - (7) 각종 개발 도구들 & MLOps 개론
 	- IDE, Editor
 	- Jupyter Notebook Extension
