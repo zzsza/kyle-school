@@ -92,12 +92,14 @@
 	- Git
 	- Github
 	- Sourcetree
-
+- (8) Github Action - [[발표 자료]](http://zzsza.github.io/kyle-school/week8/)
+	- Github Action 입문
+	- YES24의 IT 신간 도서 TOP40을 매일 아침에 Github Issue에 업로드
+	- [Github Action with Python](https://github.com/zzsza/github-action-with-python)
 
 ---
 
 ### 소재
-- Github Action
 - (7) 각종 개발 도구들 & MLOps 개론
 	- IDE, Editor
 	- Jupyter Notebook Extension
