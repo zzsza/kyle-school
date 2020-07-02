@@ -96,6 +96,10 @@
 	- Github Action 입문
 	- YES24의 IT 신간 도서 TOP40을 매일 아침에 Github Issue에 업로드
 	- [Github Action with Python](https://github.com/zzsza/github-action-with-python)
+- (9) Test Code - [[발표 자료]](http://zzsza.github.io/kyle-school/week9/)
+	- Pytest 사용 방법
+	- 오픈소스의 Test Code
+	- 딥러닝 프로젝트의 Test Code
 
 ---
 
