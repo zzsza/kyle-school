@@ -100,7 +100,12 @@
 	- Pytest 사용 방법
 	- 오픈소스의 Test Code
 	- 딥러닝 프로젝트의 Test Code
-
+- (10) Docker - [[발표 자료]](https://zzsza.github.io/kyle-school/week10/)
+	- Docker 사용 방법
+	- Docker Image 빌드하기
+	- Docker Container 실행하기
+	- Dockerfile
+	
 ---
 
 ### 소재
