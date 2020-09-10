@@ -13832,8 +13832,7 @@ services: # 컨테이너들을 정의
 <li>서비스 중단(컨테이너, 볼륨 등 삭제) : docker-compose down</li>
 <li>실행 중 서비스 확인 : docker-compose ps</li>
 <li>로그 확인 : docker-compose logs <서비스명></li>
-<li>파</li>
-<li>알아두면 좋은 지식<ul>
+<li>참고 지식!<ul>
 <li>docker-compose.yml 파일을 수정했으면 =&gt; up을 하면 컨테이너 재생성 후 서비스 재시작함</li>
 </ul>
 </li>
@@ -13895,10 +13894,20 @@ services: # 컨테이너들을 정의
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Superset-Docker">Superset Docker<a class="anchor-link" href="#Superset-Docker">&#182;</a></h3>
-<pre><code>git clone https://github.com/apache/incubator-superset/
-cd incubator-superset
-docker-compose up</code></pre>
+<h3 id="Superset-Docker">Superset Docker<a class="anchor-link" href="#Superset-Docker">&#182;</a></h3><ul>
+<li>docker-airflow<ul>
+<li>localhost:8088에서 실행</li>
+<li>id, password : admin, admin</li>
+</ul>
+</li>
+</ul>
+
+<pre><code>docker-compose up -d
+git clone https://github.com/abhioncbr/docker-superset
+
+
+cd docker-files
+docker-compose up -d</code></pre>
 <ul>
 <li>만약 Bind for 127.0.0.1:5432 failed: port is already allocated 에러가 난다면 5432 포트에 이미 선점한 것이 있을 수 있음<ul>
 <li>아마 postgre일 수 있음</li>
@@ -13913,27 +13922,6 @@ docker-compose up</code></pre>
 docker rm -fv $(docker ps -aq)
 sudo lsof -i -P -n | grep 5432
 sudo kill -9 &lt;process id&gt;</code></pre>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>docker-airflow<ul>
-<li>localhost:8088에서 실행</li>
-<li>id, password : admin, admin</li>
-</ul>
-</li>
-</ul>
-
-<pre><code>docker-compose up -d
-git clone https://github.com/abhioncbr/docker-superset
-
-
-cd docker-files
-docker-compose up -d</code></pre>
 
 </div>
 </div>
