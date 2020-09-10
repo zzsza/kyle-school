@@ -1,0 +1,12 @@
+version: '3' # 파일 규격 버전
+
+services: # 컨테이너들을 정의
+  notebook: # postgresql 서비스
+      image: jupyter/minimal-notebook # postgresql 서비스에서 사용할 도커 이미지
+      container_name: notebook # 컨테이너 이름
+      volumes:  # --volume 옵션 사용해서 연결하는 부분
+          - ./docker-volume:/home/jovyan/workspace
+      ports: # ports 호스트:컨테이너
+          - 8890:8888
+      command:
+        jupyter notebook --allow-root --ip=0.0.0.0 --no-browser

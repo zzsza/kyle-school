@@ -13211,6 +13211,7 @@ a.anchor-link {
 </ul>
 </li>
 <li>#4. 도커 이미지를 사용해 인스턴스 띄우기</li>
+<li>#5. 도커를 사용해 Superset / Metabase 띄우기</li>
 </ul>
 
 </div>
@@ -13532,15 +13533,22 @@ RUN pip install tensorflow</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>RUN과 CMD, ENTRYPOINT의 차이</p>
-<ul>
+<li>RUN과 CMD, ENTRYPOINT의 차이<ul>
 <li>RUN은 이미지 빌드 과정에서 진행. 컨테이너 이미지에 커밋됨</li>
 <li>CMD는 빌드된 이미지를 시작할 때 컨테이너가 실행하는 명령. docker run할 때 인자값을 전달해 실행하면 CMD는 무시됨</li>
 <li>ENTRYPOINT: docker run시 실행되는 명령, 단 한번만 사용. RUN 또는 start 때 사용됨</li>
 </ul>
 </li>
-<li><p>아래와 같은 Dockerfile을 만들어봅시다</p>
-</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>아래와 같은 Dockerfile을 만들어봅시다</li>
 </ul>
 
 <pre><code>FROM jupyter/minimal-notebook
@@ -13616,12 +13624,13 @@ ENTRYPOINT jupyter notebook --allow-root --ip=0.0.0.0 --port=8888 --no-browser</
 <li>Google Container Registry</li>
 <li>Google Cloud Platform에서 만든 도커 허브라고 생각하면 편함</li>
 <li>여기도 Docker 이미지를 push하고 pull할 수 있음</li>
+<li>sha1:~~~ 은 kyle을 암호화한 것</li>
 </ul>
 
 <pre><code>FROM jupyter/minimal-notebook
 RUN pip install tensorflow
 RUN jupyter notebook --generate-config --allow-root -y  \
-    &amp;&amp; echo "c.NotebookApp.password = 'kyle'" &gt;&gt; /home/jovyan/.jupyter/jupyter_notebook_config.py
+    &amp;&amp; echo "c.NotebookApp.password = 'sha1:fee705da7ee3:39094efec15c2bc5f651b88fdd5536685b5fd229'" &gt;&gt; /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 EXPOSE 8888
 
@@ -13720,6 +13729,7 @@ ENTRYPOINT jupyter notebook --allow-root --ip=0.0.0.0 --port=8888 --no-browser</
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Volume Mount 설정<ul>
+<li><code>home/jovyan/workspace</code></li>
 <li><img src="https://www.dropbox.com/s/ex9v9bl5tlyl7na/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-08-14%20%EC%98%A4%EC%A0%84%202.01.07.png?raw=1"></li>
 </ul>
 </li>
@@ -13734,7 +13744,7 @@ ENTRYPOINT jupyter notebook --allow-root --ip=0.0.0.0 --port=8888 --no-browser</
 <ul>
 <li>네트워크 태그에 위에서 만든 jupyter 네트워크 방화벽 설정</li>
 <li>인스턴스 확인<ul>
-<li><img src="https://www.dropbox.com/s/utw7gwail83xian/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-08-14%20%EC%98%A4%EC%A0%84%202.09.56.png?raw=1"></li>
+<li><img src="https://www.dropbox.com/s/a8wd6j2hud4zwad/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-09-09%20%EC%98%A4%ED%9B%84%209.38.00.png?raw=1"></li>
 </ul>
 </li>
 </ul>
@@ -13747,7 +13757,7 @@ ENTRYPOINT jupyter notebook --allow-root --ip=0.0.0.0 --port=8888 --no-browser</
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>인스턴스 ip를 사용해서 노트북 포트(8888)로 이동<ul>
-<li><img src="https://www.dropbox.com/s/ubxgke9k9lk2i9b/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-08-14%20%EC%98%A4%EC%A0%84%202.10.58.png?raw=1"></li>
+<li><img src="https://www.dropbox.com/s/20tm0n2vzmwd7ww/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-09-09%20%EC%98%A4%ED%9B%84%209.37.31.png?raw=1"></li>
 </ul>
 </li>
 <li>만약 도커 이미지에 이상이 있다면 다시 빌드 =&gt; 인스턴스 종료 후 다시 시작하면 최신 도커 이미지 사용함</li>
@@ -13759,16 +13769,93 @@ ENTRYPOINT jupyter notebook --allow-root --ip=0.0.0.0 --port=8888 --no-browser</
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#45908;-&#50526;&#47732;-&#51339;&#51008;-&#45236;&#50857;">&#45908; &#50526;&#47732; &#51339;&#51008; &#45236;&#50857;<a class="anchor-link" href="#&#45908;-&#50526;&#47732;-&#51339;&#51008;-&#45236;&#50857;">&#182;</a></h3><ul>
-<li><p>Docker Compose</p>
+<h3 id="Docker-Image-&#49324;&#50857;&#49884;-&#48520;&#54200;&#54620;-&#51216;">Docker Image &#49324;&#50857;&#49884; &#48520;&#54200;&#54620; &#51216;<a class="anchor-link" href="#Docker-Image-&#49324;&#50857;&#49884;-&#48520;&#54200;&#54620;-&#51216;">&#182;</a></h3><ul>
+<li>옵션이 다양함<ul>
+<li>실행시 작성해야 하는 명령어 옵션이 많고, 귀찮음</li>
+<li>미리 정의해둘 수 없을까?</li>
+</ul>
+</li>
+<li>컨테이너의 순서를 제어할 수 없을까?<ul>
+<li>A 컨테이너를 먼저 띄우고, B 컨테이너를 실행해야 하는 경우</li>
+<li>예를 들어 Database 컨테이너를 먼저 띄우고 어플리케이션 컨테이너를 띄워야하는 경우</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>여러 컨테이너를 한번에 띄울 때 사용</li>
+<li>Docker Compose<ul>
+<li>위에 나오는 이슈들을 해결하기 위해 나옴</li>
+<li>여러 컨테이너를 한번에 띄울 수 있음</li>
+<li>여러 컨테이너의 실행 순서, 의존도를 관리할 수 있음</li>
+<li><code>docker-compose.yml</code> 파일에 작성함</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>simple notebook docker-compose.yml 파일</li>
+</ul>
+
+<pre><code>version: '3' # 파일 규격 버전
+
+services: # 컨테이너들을 정의
+  notebook: # notebook 서비스
+      image: jupyter/minimal-notebook # notebook 서비스에서 사용할 도커 이미지
+      container_name: notebook # 컨테이너 이름
+      volumes:  # --volume 옵션 사용해서 연결하는 부분
+          - ./docker-volume:/home/jovyan/workspace
+      ports: # ports 호스트:컨테이너
+          - 8888:8888
+      command:
+        jupyter notebook --allow-root --ip=0.0.0.0 --no-browser</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>백그라운드에서 실행하기(docker run -d와 동일) : docker-compose up -d</li>
+<li>서비스 중단(컨테이너, 볼륨 등 삭제) : docker-compose down</li>
+<li>실행 중 서비스 확인 : docker-compose ps</li>
+<li>로그 확인 : docker-compose logs <서비스명></li>
+<li>파</li>
+<li>알아두면 좋은 지식<ul>
+<li>docker-compose.yml 파일을 수정했으면 =&gt; up을 하면 컨테이너 재생성 후 서비스 재시작함</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li><p><a href="https://github.com/puckel/docker-airflow">Airflow Dockerfile</a> 띄우기</p>
 
-<pre><code>git clone https://github.com/puckel/docker-airflow
-cd docker-airflow
-docker-compose -f docker-compose-LocalExecutor.yml up -d</code></pre>
+<pre><code>  git clone https://github.com/puckel/docker-airflow
+  cd docker-airflow
+  docker-compose -f docker-compose-CeleryExecutor.yml up</code></pre>
 </li>
+<li><p>혹시 Bind for 0.0.0.0:5555 failed: port is already allocated 에러가 발생하는 경우</p>
+<ul>
+<li>docker container ls로 실행된 컨테이너 중 포트 사용하는거 확인하고 </li>
+<li>docker rm -f <컨테이너 id>로 삭제</li>
 </ul>
 </li>
 </ul>
@@ -13784,22 +13871,98 @@ docker-compose -f docker-compose-LocalExecutor.yml up -d</code></pre>
 <ul>
 <li><p>docker-compose up -d</p>
 
-<pre><code>version: '3'
-services:
-postgresql:
-  image: postgres
-  container_name: postgresql
-  restart: always
-  volumes:
-    - ./postgresql/data:/var/lib/postgresql/data
-  ports:
-    - 5432:5432
-  environment:
-    POSTGRES_PASSWORD: "password"
-    TZ: "Asia/Seoul"</code></pre>
+<pre><code>version: '3' # 파일 규격 버전
+
+services: # 컨테이너들을 정의
+  postgresql: # postgresql 서비스
+      image: postgres # postgresql 서비스에서 사용할 도커 이미지
+      container_name: postgresql # 컨테이너 이름
+      volumes:  # --volume 옵션 사용해서 연결하는 부분
+          - ./postgresql/data:/var/lib/postgresql/data
+      ports: # ports 호스트:컨테이너
+          - 5432:5432
+      environment: # 환경 변수
+          POSTGRES_PASSWORD: "password"
+          TZ: "Asia/Seoul"</code></pre>
 </li>
 </ul>
 </li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Superset-Docker">Superset Docker<a class="anchor-link" href="#Superset-Docker">&#182;</a></h3>
+<pre><code>git clone https://github.com/apache/incubator-superset/
+cd incubator-superset
+docker-compose up</code></pre>
+<ul>
+<li>만약 Bind for 127.0.0.1:5432 failed: port is already allocated 에러가 난다면 5432 포트에 이미 선점한 것이 있을 수 있음<ul>
+<li>아마 postgre일 수 있음</li>
+<li>docker container ls로 확인 후 </li>
+<li>docker rm -f <컨테이너 id></li>
+<li>또는 아래 명령어 실행</li>
+</ul>
+</li>
+</ul>
+
+<pre><code>docker-compose down
+docker rm -fv $(docker ps -aq)
+sudo lsof -i -P -n | grep 5432
+sudo kill -9 &lt;process id&gt;</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>docker-airflow<ul>
+<li>localhost:8088에서 실행</li>
+<li>id, password : admin, admin</li>
+</ul>
+</li>
+</ul>
+
+<pre><code>docker-compose up -d
+git clone https://github.com/abhioncbr/docker-superset
+
+
+cd docker-files
+docker-compose up -d</code></pre>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>proxy: listen tcp 0.0.0.0:6379: bind: address already in use 이 에러가 뜬다면</li>
+</ul>
+
+<pre><code>docker-compose down
+docker rm -fv $(docker ps -aq)
+sudo lsof -i -P -n | grep 6379
+sudo kill -9 6379</code></pre>
+<ul>
+<li><img src="https://www.dropbox.com/s/ifw0myziveh8omc/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-09-10%20%EC%98%A4%ED%9B%84%209.51.12.png?raw=1"></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Metabase-Docker">Metabase Docker<a class="anchor-link" href="#Metabase-Docker">&#182;</a></h3>
+<pre><code>docker run -d -p 3000:3000 --name metabase metabase/metabase</code></pre>
+<ul>
+<li><img src="https://www.dropbox.com/s/zh7vnr1hn5h2q5z/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-09-09%20%EC%98%A4%ED%9B%84%208.39.43.png?raw=1"></li>
 </ul>
 
 </div>
