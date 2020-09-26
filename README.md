@@ -109,17 +109,8 @@
 ---
 
 ### 소재
-- (7) 각종 개발 도구들 & MLOps 개론
-	- IDE, Editor
-	- Jupyter Notebook Extension
+- MLOps 개론
 	- MLOps 개론
-- (8) MLOps 실험 플랫폼
-	- 실험 반복, 파라미터 저장하는 Sacred & Omniboard
-	- (상황 봐서) Microsoft nni
-- (10) Docker
-- (11) Python Test 소개 
-- (12) Dashboard 만들기
-	- Superset, Voila
 
 
 ---
